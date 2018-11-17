@@ -1,0 +1,38 @@
+<h1>{{title}}</h1>
+<div class="card card-body">
+    <h3>Update employee details</h3>
+
+    <form action="/employees/update/{{employee.id}}?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+
+        {{#each errors}}
+            <div class="alert alert-danger">   {{message}}   </div>
+        {{else}}
+        {{/each}}
+
+        <div class="form-group">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" value="{{employee.fullName}}" class="form-control" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="phone">Phone</label>
+                <input type="number" id="phone" name="phone" value="{{employee.phone}}" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="city">City</label>
+                <input id="city" name="city" value="{{employee.city}}" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" value="{{employee.email}}" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success"><i class="fa fa-database"></i>Update</button>
+
+    </form>
+
+</div>
